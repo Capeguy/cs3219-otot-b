@@ -25,7 +25,7 @@ deploy:
   function_name: cs3219-task-b
   region: ap-southeast-1
   role: arn:aws:iam::165735147686:role/cs3129-lambda
-  runtime: nodejs12
+  runtime: nodejs12.x
   handler_name: handler
   on:
     all_branches: true
