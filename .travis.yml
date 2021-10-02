@@ -12,7 +12,7 @@ branches:
 env:
   global:
     - PORT=3000
-    - MONGODB_URL=mongodb://localhost:27017/node-boilerplate
+    - MONGODB_URL=mongodb://localhost:27017/app
     - JWT_SECRET=thisisasamplesecret
     - JWT_ACCESS_EXPIRATION_MINUTES=30
     - JWT_REFRESH_EXPIRATION_DAYS=30
@@ -20,3 +20,12 @@ script:
   - yarn lint
   - yarn test
 after_success: yarn coverage:coveralls
+
+deploy:
+  provider: lambda
+  function_name: "cs3219-task-b"
+  region: "ap-southeast-1"
+  role: "arn:aws:iam::165735147686:role/cs3129-lambda"
+  runtime: "nodejs12"
+  handler_name: "handler"
+  
