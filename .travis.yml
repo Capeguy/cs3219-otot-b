@@ -2,21 +2,24 @@ language: node_js
 os: linux
 dist: xenial
 node_js:
-  - '12'
+- '12'
 services:
-  - mongodb
+- mongodb
 cache: yarn
 branches:
   only:
-    - main
+  - main
 env:
   global:
-    - PORT=3000
-    - MONGODB_URL=mongodb://localhost:27017/node-boilerplate
-    - JWT_SECRET=thisisasamplesecret
-    - JWT_ACCESS_EXPIRATION_MINUTES=30
-    - JWT_REFRESH_EXPIRATION_DAYS=30
+  - PORT=3000
+  - MONGODB_URL=mongodb://localhost:27017/node-boilerplate
+  - JWT_SECRET=thisisasamplesecret
+  - JWT_ACCESS_EXPIRATION_MINUTES=30
+  - JWT_REFRESH_EXPIRATION_DAYS=30
 script:
-  - yarn lint
-  - yarn test
+- yarn lint
+- yarn test
 after_success: yarn coverage:coveralls
+deploy:
+  secret_access_key:
+    secure: ZDEQZTvl2FMsUXtCE+WMSscsQd3FRWxsPF+FT/3lPxe0QeSsb8pGRl/krzKeCXv0OHZnAaWRRQdtipCQxRK37vBVMJv/f3RWl5956SOzud2qC1U4mhzVBNgMpYBVfW8XJgDFwWTSfVQOmuSZHM95PPiHtHN8atay7NFJIkQC3pajCXqjunOlWj5nZjK8N3Fukkea9fpcr8Gxd9iZvdbKFCI041DPedjmJXY/MyAgLujFyaZ19x6hX6kHl3Zoaw4EOvfiDFMKDaWyPw2ESc52pKsw7ooRQrrXt1RR6HhP5rhcxfJwb45OP9IkOvXDJRVJNKyRiyqpKm+VX65Yer6RlQBtWYpjYXrypmjzNGmbov2DFFIBsa15sCpZxusFWUYJ++aNGMXeIAhaX83pjCSgegW2unOKhA3mg9zZMWdXOiusSVejZeBrHYPTlg+CfQQgB+5rpOOMtBEz0A2AG+Od+13OLiMRSiugJkoZP7l6+w6JpDwrdkZ45KQojvKB/Ocu4h0qy/v4qHNCiiPyE6iAikXKpvcBZkPdqNIPJuhgv8wqbJln5k0gHhWbAeuGM3TvAcxoEB0DirLjUSHodluwp8mkC2psG2cmR+e4e/Wp8UgRsp8GVQMzzUFYP9anaXsY6yvhl5I0AGxdTU/XCQUxUFRjhiENaOPAX3fNJJwK5TM=
