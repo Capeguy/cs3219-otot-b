@@ -1,4 +1,6 @@
 language: node_js
+os: linux
+dist: xenial
 node_js:
   - '12'
 services:
@@ -6,7 +8,7 @@ services:
 cache: yarn
 branches:
   only:
-    - master
+    - main
 env:
   global:
     - PORT=3000
