@@ -28,4 +28,5 @@ deploy:
   role: "arn:aws:iam::165735147686:role/cs3129-lambda"
   runtime: "nodejs12"
   handler_name: "handler"
-  
+  on:
+    all_branches: true
