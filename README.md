@@ -9,8 +9,10 @@
 | Instructions | [Below](#foo) |
 | Other Relevant Learnings | null |
 
+## Table of Contents
 - [Task B](#task-b)
   - [Submission Information](#submission-information)
+  - [Table of Contents](#table-of-contents)
   - [Task B1](#task-b1)
     - [Postman on Local](#postman-on-local)
       - [Base URL](#base-url)
@@ -35,7 +37,9 @@
   - [Task B2](#task-b2)
     - [Successful Testing of API using Jest](#successful-testing-of-api-using-jest)
     - [Use of CI Tools - Travis](#use-of-ci-tools---travis)
+      - [How to Run](#how-to-run)
       - [Travis Configuration File](#travis-configuration-file)
+      - [Output of Travis Build](#output-of-travis-build)
 
 ## Task B1
 
@@ -134,6 +138,10 @@ Test Run Outputs
 
 ### Use of CI Tools - Travis
 
+#### How to Run
+
+Travis Build is configured to run automatically upon commits to the `main` branch.
+
 #### Travis Configuration File
 
 ![Travis File](images/b2.2.png)
@@ -149,3 +157,7 @@ Line 20: Checks that the files are linted
 Line 21: Start the tests ( `yarn test` which runs `jest -i --colors --verbose` as defined in package.json)
 
 Line 22: Upon job success, generate coverage report
+
+#### Output of Travis Build
+
+![Output of Travis Build](images/b2.3.png)
