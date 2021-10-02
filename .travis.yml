@@ -11,24 +11,25 @@ branches:
   - main
 env:
   global:
-    - PORT=3000
-    - MONGODB_URL=mongodb://localhost:27017/app
-    - JWT_SECRET=thisisasamplesecret
-    - JWT_ACCESS_EXPIRATION_MINUTES=30
-    - JWT_REFRESH_EXPIRATION_DAYS=30
+  - PORT=3000
+  - MONGODB_URL=mongodb://localhost:27017/app
+  - JWT_SECRET=thisisasamplesecret
+  - JWT_ACCESS_EXPIRATION_MINUTES=30
+  - JWT_REFRESH_EXPIRATION_DAYS=30
 script:
 - yarn lint
 - yarn test
 after_success: yarn coverage:coveralls
-
 deploy:
   provider: lambda
-  function_name: "cs3219-task-b"
-  region: "ap-southeast-1"
-  role: "arn:aws:iam::165735147686:role/cs3129-lambda"
-  runtime: "nodejs12"
-  handler_name: "handler"
+  function_name: cs3219-task-b
+  region: ap-southeast-1
+  role: arn:aws:iam::165735147686:role/cs3129-lambda
+  runtime: nodejs12
+  handler_name: handler
   on:
     all_branches: true
+  access_key_id:
+    secure: eL7i9e8hcON3CGIDTLB5lVUxOxN0SJJzSFWbbLtrGtMubpPEeAw+pnaPUkEKlnh6Zf1hLCqbykUBLV8qDq4hE2VzHZwU4dwWtszalzXFStq0sYjXQQ42+p9nWsD5R43Gyb6iimznh/tsKIhv+mONvrmfYEtgXjUbH3esEQ6grRGkUIM8a+LEWgeO5t1vq/HBhbzbcCKoDX/kQTP5K+fkusWxEwPuVIjeIVGn4hMgx8GFxSiXT2DPkjGP2wyV3usCqfP2bq1dRGITXt5Vx5+m6ICRtG6l7UsGIiygDJOqdFPT10co9HMX3yIumNjyGWUTNwMhe1gpEugN93ecNaF/qZ3h87iRZU+xgQp9i7gE8ir3pigaYVO/71BpOHaTJ/SyUGFjsFpWOHUb+WhkCpa2OICA/ZpIF62cd6qvZ49N8i5Uz33lYCrDnMYJZSlzMbMvYN391X319nJ0hchIhPjJ+Hd6jSWY1YldfC4tF4ZY2JYKUXTVDTQTq8GQo00dt3442+tEoqHSUO8EaFnOeee5DEj+tYVea4FV3CwdniP0hSlVBdTAMpq+4jeV6Mp/wxbVfPaU9ZRxzrLgaRrSA9I7K/KkU4wPDihlzoqks1h2I59fR7uK50su9joKf04p8/ltkQ9kfUZUlBY7Pq534WVBi/vqGsan/5L3MXoM7FWOzo4=
   secret_access_key:
     secure: ZDEQZTvl2FMsUXtCE+WMSscsQd3FRWxsPF+FT/3lPxe0QeSsb8pGRl/krzKeCXv0OHZnAaWRRQdtipCQxRK37vBVMJv/f3RWl5956SOzud2qC1U4mhzVBNgMpYBVfW8XJgDFwWTSfVQOmuSZHM95PPiHtHN8atay7NFJIkQC3pajCXqjunOlWj5nZjK8N3Fukkea9fpcr8Gxd9iZvdbKFCI041DPedjmJXY/MyAgLujFyaZ19x6hX6kHl3Zoaw4EOvfiDFMKDaWyPw2ESc52pKsw7ooRQrrXt1RR6HhP5rhcxfJwb45OP9IkOvXDJRVJNKyRiyqpKm+VX65Yer6RlQBtWYpjYXrypmjzNGmbov2DFFIBsa15sCpZxusFWUYJ++aNGMXeIAhaX83pjCSgegW2unOKhA3mg9zZMWdXOiusSVejZeBrHYPTlg+CfQQgB+5rpOOMtBEz0A2AG+Od+13OLiMRSiugJkoZP7l6+w6JpDwrdkZ45KQojvKB/Ocu4h0qy/v4qHNCiiPyE6iAikXKpvcBZkPdqNIPJuhgv8wqbJln5k0gHhWbAeuGM3TvAcxoEB0DirLjUSHodluwp8mkC2psG2cmR+e4e/Wp8UgRsp8GVQMzzUFYP9anaXsY6yvhl5I0AGxdTU/XCQUxUFRjhiENaOPAX3fNJJwK5TM=
