@@ -17,9 +17,7 @@ router.get(
     explorer: true,
   })
 );
-router.get(
-  '/json', function(req, res) {
-    res.send(specs);
-  }
-);
+router.get('/json', function (req, res) {
+  res.send(specs);
+});
 module.exports = router;

@@ -5,7 +5,7 @@ const swaggerDef = {
   openapi: '3.0.0',
   info: {
     title: 'CS3219 Task B API documentation',
-    version
+    version,
   },
   servers: [
     {

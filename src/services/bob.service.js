@@ -71,12 +71,12 @@ const updateBobById = async (BobId, updateBody) => {
  * @returns {Promise<Bob>}
  */
 const deleteBobById = async (BobId) => {
-  const Bob = await getBobById(BobId);
-  if (!Bob) {
+  const bob = await getBobById(BobId);
+  if (!bob) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Bob not found');
   }
-  await Bob.remove();
-  return Bob;
+  await bob.remove();
+  return bob;
 };
 
 module.exports = {

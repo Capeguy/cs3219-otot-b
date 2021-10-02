@@ -3,7 +3,7 @@ const { objectId } = require('./custom.validation');
 
 const createBob = {
   body: Joi.object().keys({
-    name: Joi.string().required()
+    name: Joi.string().required(),
   }),
 };
 
