@@ -19,10 +19,7 @@ describe('Bob routes', () => {
     });
 
     test('should return 201 and successfully create new Bob if data is ok', async () => {
-      const res = await request(app)
-        .post('/v1/bobs')
-        .send(newBob)
-        .expect(httpStatus.CREATED);
+      const res = await request(app).post('/v1/bobs').send(newBob).expect(httpStatus.CREATED);
       expect(res.body).toEqual({
         id: expect.anything(),
         name: newBob.name,
@@ -34,20 +31,14 @@ describe('Bob routes', () => {
 
     test('should return 400 error if name is invalid', async () => {
       newBob.name = '';
-      await request(app)
-        .post('/v1/bobs')
-        .send(newBob)
-        .expect(httpStatus.BAD_REQUEST);
+      await request(app).post('/v1/bobs').send(newBob).expect(httpStatus.BAD_REQUEST);
     });
 
     test('should return 400 error if name is already used', async () => {
       await insertBobs([bobOne]);
       newBob.name = bobOne.name;
 
-      await request(app)
-        .post('/v1/bobs')
-        .send(newBob)
-        .expect(httpStatus.BAD_REQUEST);
+      await request(app).post('/v1/bobs').send(newBob).expect(httpStatus.BAD_REQUEST);
     });
   });
 
@@ -55,10 +46,7 @@ describe('Bob routes', () => {
     test('should return 200 and apply the default query options', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -77,11 +65,7 @@ describe('Bob routes', () => {
     test('should correctly sort the returned array if descending sort param is specified', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .query({ sortBy: 'role:desc' })
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').query({ sortBy: 'role:desc' }).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -98,11 +82,7 @@ describe('Bob routes', () => {
     test('should correctly sort the returned array if ascending sort param is specified', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .query({ sortBy: 'role:asc' })
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').query({ sortBy: 'role:asc' }).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -119,11 +99,7 @@ describe('Bob routes', () => {
     test('should correctly sort the returned array if multiple sorting criteria are specified', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .query({ sortBy: 'id:desc,name:asc' })
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').query({ sortBy: 'id:desc,name:asc' }).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -144,19 +120,15 @@ describe('Bob routes', () => {
         return a.name < b.name ? -1 : 1;
       });
 
-      expectedOrder.forEach((Bob, index) => {
-        expect(res.body.results[index].id).toBe(Bob._id.toHexString());
+      expectedOrder.forEach((bob, index) => {
+        expect(res.body.results[index].id).toBe(bob._id.toHexString());
       });
     });
 
     test('should limit returned array if limit param is specified', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .query({ limit: 1 })
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').query({ limit: 1 }).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -172,11 +144,7 @@ describe('Bob routes', () => {
     test('should return the correct page if page and limit params are specified', async () => {
       await insertBobs([bobOne, bobTwo]);
 
-      const res = await request(app)
-        .get('/v1/bobs')
-        .query({ page: 2, limit: 1 })
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get('/v1/bobs').query({ page: 2, limit: 1 }).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         results: expect.any(Array),
@@ -194,10 +162,7 @@ describe('Bob routes', () => {
     test('should return 200 and the Bob object if data is ok', async () => {
       await insertBobs([bobOne]);
 
-      const res = await request(app)
-        .get(`/v1/bobs/${bobOne._id}`)
-        .send()
-        .expect(httpStatus.OK);
+      const res = await request(app).get(`/v1/bobs/${bobOne._id}`).send().expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         id: bobOne._id.toHexString(),
@@ -208,19 +173,13 @@ describe('Bob routes', () => {
     test('should return 400 error if BobId is not a valid mongo id', async () => {
       await insertBobs([bobTwo]);
 
-      await request(app)
-        .get('/v1/bobs/invalidId')
-        .send()
-        .expect(httpStatus.BAD_REQUEST);
+      await request(app).get('/v1/bobs/invalidId').send().expect(httpStatus.BAD_REQUEST);
     });
 
     test('should return 404 error if Bob is not found', async () => {
       await insertBobs([bobTwo]);
 
-      await request(app)
-        .get(`/v1/bobs/${bobOne._id}`)
-        .send()
-        .expect(httpStatus.NOT_FOUND);
+      await request(app).get(`/v1/bobs/${bobOne._id}`).send().expect(httpStatus.NOT_FOUND);
     });
   });
 
@@ -228,10 +187,7 @@ describe('Bob routes', () => {
     test('should return 204 if data is ok', async () => {
       await insertBobs([bobOne]);
 
-      await request(app)
-        .delete(`/v1/bobs/${bobOne._id}`)
-        .send()
-        .expect(httpStatus.NO_CONTENT);
+      await request(app).delete(`/v1/bobs/${bobOne._id}`).send().expect(httpStatus.NO_CONTENT);
 
       const dbBob = await Bob.findById(bobOne._id);
       expect(dbBob).toBeNull();
@@ -240,28 +196,19 @@ describe('Bob routes', () => {
     test('should return 204 if trying to delete another Bob', async () => {
       await insertBobs([bobOne]);
 
-      await request(app)
-        .delete(`/v1/bobs/${bobOne._id}`)
-        .send()
-        .expect(httpStatus.NO_CONTENT);
+      await request(app).delete(`/v1/bobs/${bobOne._id}`).send().expect(httpStatus.NO_CONTENT);
     });
 
     test('should return 400 error if BobId is not a valid mongo id', async () => {
       await insertBobs([bobOne]);
 
-      await request(app)
-        .delete('/v1/bobs/invalidId')
-        .send()
-        .expect(httpStatus.BAD_REQUEST);
+      await request(app).delete('/v1/bobs/invalidId').send().expect(httpStatus.BAD_REQUEST);
     });
 
     test('should return 404 error if Bob already is not found', async () => {
       await insertBobs([bobTwo]);
 
-      await request(app)
-        .delete(`/v1/bobs/${bobOne._id}`)
-        .send()
-        .expect(httpStatus.NOT_FOUND);
+      await request(app).delete(`/v1/bobs/${bobOne._id}`).send().expect(httpStatus.NOT_FOUND);
     });
   });
 
@@ -272,10 +219,7 @@ describe('Bob routes', () => {
         name: faker.name.findName(),
       };
 
-      const res = await request(app)
-        .patch(`/v1/bobs/${bobOne._id}`)
-        .send(updateBody)
-        .expect(httpStatus.OK);
+      const res = await request(app).patch(`/v1/bobs/${bobOne._id}`).send(updateBody).expect(httpStatus.OK);
 
       expect(res.body).toEqual({
         id: bobOne._id.toHexString(),
@@ -291,20 +235,14 @@ describe('Bob routes', () => {
       await insertBobs([bobTwo]);
       const updateBody = { name: faker.name.findName() };
 
-      await request(app)
-        .patch(`/v1/bobs/${bobOne._id}`)
-        .send(updateBody)
-        .expect(httpStatus.NOT_FOUND);
+      await request(app).patch(`/v1/bobs/${bobOne._id}`).send(updateBody).expect(httpStatus.NOT_FOUND);
     });
 
     test('should return 400 error if BobId is not a valid mongo id', async () => {
       await insertBobs([bobTwo]);
       const updateBody = { name: faker.name.findName() };
 
-      await request(app)
-        .patch(`/v1/bobs/invalidId`)
-        .send(updateBody)
-        .expect(httpStatus.BAD_REQUEST);
+      await request(app).patch(`/v1/bobs/invalidId`).send(updateBody).expect(httpStatus.BAD_REQUEST);
     });
   });
 });

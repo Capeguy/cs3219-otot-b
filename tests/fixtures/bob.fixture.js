@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const faker = require('faker');
 const Bob = require('../../src/models/bob.model');
 
