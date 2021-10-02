@@ -36,3 +36,12 @@ process.on('SIGTERM', () => {
     server.close();
   }
 });
+const handler = () => {
+  mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
+    logger.info('Connected to MongoDB');
+    server = app.listen(config.port, () => {
+      logger.info(`Listening to port ${config.port}`);
+    });
+  });
+};
+exports.handler = handler;
