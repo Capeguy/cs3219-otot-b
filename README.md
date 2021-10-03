@@ -40,6 +40,8 @@
       - [How to Run](#how-to-run)
       - [Travis Configuration File](#travis-configuration-file)
       - [Output of Travis Build](#output-of-travis-build)
+  - [Task B3](#task-b3)
+    - [Use of Serverless to deploy to AWS Lambda](#use-of-serverless-to-deploy-to-aws-lambda)
 
 ## Task B1
 
@@ -161,3 +163,38 @@ Line 22: Upon job success, generate coverage report
 #### Output of Travis Build
 
 ![Output of Travis Build](images/b2.3.png)
+
+## Task B3
+
+### Use of Serverless to deploy to AWS Lambda
+
+```yaml
+service: cs3219-taskb-serverless-2
+app: cs3219-taskb-serverless-2
+org: capeguy
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+    environment:
+      PORT: 3000
+      MONGODB_URL: <snip>
+      JWT_SECRET: thisisasamplesecret
+      JWT_ACCESS_EXPIRATION_MINUTES: 30
+      JWT_REFRESH_EXPIRATION_DAYS: 30
+      JWT_RESET_PASSWORD_EXPIRATION_MINUTES: 10
+      JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: 10
+      NODE_ENV: development
+```
