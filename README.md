@@ -147,7 +147,7 @@ Travis Build is configured to run automatically upon commits to the `main` branc
 #### Travis Configuration File
 
 ```yaml
-1. language: node_js
+language: node_js
 os: linux
 dist: xenial
 node_js:
@@ -253,10 +253,14 @@ functions:
       JWT_REFRESH_EXPIRATION_DAYS: 30
       JWT_RESET_PASSWORD_EXPIRATION_MINUTES: 10
       JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: 10
-      NODE_ENV: development
+      NODE_ENV: production
 ```
 
 Serverless Credentials and AWS Keys are provided as encrypted travis environment variables:
 
 `travis encrypt "VariableName=VariableValue" --pro`
 
+This configuration deploys the code as an AWS Lambda with the required environment variables, along with the required resources through AWS CloudFormation (e.g. S3, CloudWatch LogGroups, API Gateway).
+
+
+It also configures an the AWS API Gateway in the `dev` stage as the trigger, accepting all HTTP request paths and forwarding them to the Lambda. Upon event triggered in AWS Lambda, the function in `src/index.handler` is invoked.
