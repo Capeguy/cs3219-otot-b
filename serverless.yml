@@ -59,12 +59,12 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  app:
+  hello:
     handler: src/index.handler
     events:
       - http: ANY /
-  hello:
-    handler: handler.hello
+  # hello:
+  #   handler: handler.hello
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
