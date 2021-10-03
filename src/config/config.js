@@ -34,6 +34,8 @@ if (error) {
 
 module.exports = {
   env: envVars.NODE_ENV,
+  host: (envVars.NODE_ENV === 'production' ? '6mdyos1gdc.execute-api.ap-southeast-1.amazonaws.com/dev' : 'localhost'),
+  httpScheme: (envVars.NODE_ENV === 'production' ? 'https' : 'http'),
   port: envVars.PORT,
   mongoose: {
     url: envVars.MONGODB_URL + (envVars.NODE_ENV === 'test' ? '-test' : ''),
