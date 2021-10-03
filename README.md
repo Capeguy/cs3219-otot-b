@@ -262,5 +262,7 @@ Serverless Credentials and AWS Keys are provided as encrypted travis environment
 
 This configuration deploys the code as an AWS Lambda with the required environment variables, along with the required resources through AWS CloudFormation (e.g. S3, CloudWatch LogGroups, API Gateway).
 
-
-It also configures an the AWS API Gateway in the `dev` stage as the trigger, accepting all HTTP request paths and forwarding them to the Lambda. Upon event triggered in AWS Lambda, the function in `src/index.handler` is invoked.
+It also configures an the AWS API Gateway in the `dev` stage as the trigger, accepting all HTTP request paths and forwarding them to the Lambda. Upon event triggered in AWS Lambda, the function in `src/index.handler` is invoked, which is defined as 
+```js
+module.exports.handler = serverless(app);
+```
