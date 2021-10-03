@@ -1,0 +1,152 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet"/>
+<meta charset="utf-8" content="text/html"/>
+<div class="gist">
+<style class="formula-style">
+        svg.gh-md-to-html-formula {
+            fill: black;
+        }
+    </style>
+<div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file" id="user-content-article-A0184084B_C">
+<div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="user-content-file-docker-image-pull-md-readme" style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+<article class="markdown-body entry-content container-lg" itemprop="text">
+<h1 id="user-content-submission-information">
+<a aria-hidden="true" class="anchor" href="#user-content-submission-information" id="user-content-submission-information" name="user-content-submission-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submission Information</h1>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lau Jun Hao Benjamin</td>
+</tr>
+<tr>
+<td>Matriculation Number</td>
+<td>A01840840B</td>
+</tr>
+<tr>
+<td>Link to GitHub Repository</td>
+<td>(Same as task B) <a href="https://github.com/Capeguy/cs3219-otot-b">https://github.com/Capeguy/cs3219-otot-b</a>
+</td>
+</tr>
+<tr>
+<td>Instructions</td>
+<td><a href="#user-content-foo">Below</a></td>
+</tr>
+<tr>
+<td>Other Relevant Learnings</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#user-content-submission-information">Submission Information</a></li>
+<li>
+<a href="#user-content-task-c">Task C</a>
+<ul>
+<li><a href="#user-content-unsuccessful-get-request-to-api-endpoint-while-unauthenticated">Unsuccessful GET request to API Endpoint while Unauthenticated</a></li>
+<li><a href="#user-content-login-as-admin-full-permissions--authenticate-user">Login as Admin (Full Permissions) / Authenticate User</a></li>
+<li><a href="#user-content-successful-get-request-to-api-endpoint-while-authenticated">Successful GET request to API Endpoint while Authenticated</a></li>
+<li><a href="#user-content-login-as-user-limited-permissions--authenticate-user">Login as User (Limited Permissions) / Authenticate User</a></li>
+<li><a href="#user-content-unsuccessful-get-request-to-api-endpoint-while-unauthorized">Unsuccessful GET request to API Endpoint while Unauthorized</a></li>
+<li><a href="#user-content-successful-get-request-to-api-endpoint-while-unauthorized">Successful GET request to API Endpoint while Unauthorized</a></li>
+<li>
+<a href="#user-content-implementation">Implementation</a>
+<ul>
+<li>
+<a href="#user-content-usage-of-jwt">Usage of JWT</a>
+<ul>
+<li><a href="#user-content-breakdown-of-access-token">Breakdown of Access Token</a></li>
+<li><a href="#user-content-breakdown-of-refresh-token">Breakdown of Refresh Token</a></li>
+</ul>
+</li>
+<li><a href="#user-content-use-of-framework-with-role-and-permissions-support">Use of Framework with Role and Permissions Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="user-content-task-c">
+<a aria-hidden="true" class="anchor" href="#user-content-task-c" id="user-content-task-c" name="user-content-task-c"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task C</h1>
+<h2 id="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthenticated">
+<a aria-hidden="true" class="anchor" href="#user-content-unsuccessful-get-request-to-api-endpoint-while-unauthenticated" id="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthenticated" name="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthenticated"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unsuccessful GET request to API Endpoint while Unauthenticated</h2>
+<p><a href="/images/c1.1.png" rel="noopener noreferrer" target="_blank"><img alt="Unsuccessful GET request to API Endpoint while Unauthenticated" data-canonical-src="/images/c1.1.png" src="/images/c1.1.png" style="max-width:100%; max-height: 836px;"/></a></p>
+<h2 id="user-content-login-as-admin-full-permissions--authenticate-user">
+<a aria-hidden="true" class="anchor" href="#user-content-login-as-admin-full-permissions--authenticate-user" id="user-content-login-as-admin-full-permissions--authenticate-user" name="user-content-login-as-admin-full-permissions--authenticate-user"><span aria-hidden="true" class="octicon octicon-link"></span></a>Login as Admin (Full Permissions) / Authenticate User</h2>
+<p><a href="/images/c1.2.png" rel="noopener noreferrer" target="_blank"><img alt="Login as Admin (Full Permissions) / Authenticate User" data-canonical-src="/images/c1.2.png" src="/images/c1.2.png" style="max-width:100%; max-height: 1740px;"/></a></p>
+<h2 id="user-content-successful-get-request-to-api-endpoint-while-authenticated">
+<a aria-hidden="true" class="anchor" href="#user-content-successful-get-request-to-api-endpoint-while-authenticated" id="user-content-successful-get-request-to-api-endpoint-while-authenticated" name="user-content-successful-get-request-to-api-endpoint-while-authenticated"><span aria-hidden="true" class="octicon octicon-link"></span></a>Successful GET request to API Endpoint while Authenticated</h2>
+<p><a href="/images/c1.3.png" rel="noopener noreferrer" target="_blank"><img alt="Successful GET request to API Endpoint while Authenticated" data-canonical-src="/images/c1.3.png" src="/images/c1.3.png" style="max-width:100%; max-height: 1392px;"/></a></p>
+<h2 id="user-content-login-as-user-limited-permissions--authenticate-user">
+<a aria-hidden="true" class="anchor" href="#user-content-login-as-user-limited-permissions--authenticate-user" id="user-content-login-as-user-limited-permissions--authenticate-user" name="user-content-login-as-user-limited-permissions--authenticate-user"><span aria-hidden="true" class="octicon octicon-link"></span></a>Login as User (Limited Permissions) / Authenticate User</h2>
+<p><a href="/images/c1.5.png" rel="noopener noreferrer" target="_blank"><img alt="Login as User (Limited Permissions) / Authenticate User" data-canonical-src="/images/c1.5.png" src="/images/c1.5.png" style="max-width:100%; max-height: 1656px;"/></a></p>
+<h2 id="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthorized">
+<a aria-hidden="true" class="anchor" href="#user-content-unsuccessful-get-request-to-api-endpoint-while-unauthorized" id="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthorized" name="user-content-unsuccessful-get-request-to-api-endpoint-while-unauthorized"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unsuccessful GET request to API Endpoint while Unauthorized</h2>
+<p><a href="/images/c1.6.png" rel="noopener noreferrer" target="_blank"><img alt="Unsuccessful GET request to API Endpoint while Unauthorized" data-canonical-src="/images/c1.6.png" src="/images/c1.6.png" style="max-width:100%; max-height: 1008px;"/></a></p>
+<p>After granting the User rights:</p>
+<h2 id="user-content-successful-get-request-to-api-endpoint-while-unauthorized">
+<a aria-hidden="true" class="anchor" href="#user-content-successful-get-request-to-api-endpoint-while-unauthorized" id="user-content-successful-get-request-to-api-endpoint-while-unauthorized" name="user-content-successful-get-request-to-api-endpoint-while-unauthorized"><span aria-hidden="true" class="octicon octicon-link"></span></a>Successful GET request to API Endpoint while Unauthorized</h2>
+<p><a href="/images/c1.7.png" rel="noopener noreferrer" target="_blank"><img alt="Successful GET request to API Endpoint while Unauthorized" data-canonical-src="/images/c1.7.png" src="/images/c1.7.png" style="max-width:100%; max-height: 1640px;"/></a></p>
+<h2 id="user-content-implementation">
+<a aria-hidden="true" class="anchor" href="#user-content-implementation" id="user-content-implementation" name="user-content-implementation"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation</h2>
+<h3 id="user-content-usage-of-jwt">
+<a aria-hidden="true" class="anchor" href="#user-content-usage-of-jwt" id="user-content-usage-of-jwt" name="user-content-usage-of-jwt"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage of JWT</h3>
+<p>Calling the /login endpoint successfully will return Access and Refresh Tokens.</p>
+<h4 id="user-content-breakdown-of-access-token">
+<a aria-hidden="true" class="anchor" href="#user-content-breakdown-of-access-token" id="user-content-breakdown-of-access-token" name="user-content-breakdown-of-access-token"><span aria-hidden="true" class="octicon octicon-link"></span></a>Breakdown of Access Token</h4>
+<p><a href="/images/c1.8.png" rel="noopener noreferrer" target="_blank"><img alt="Breakdown of Access Token" data-canonical-src="/images/c1.8.png" src="/images/c1.8.png" style="max-width:100%; max-height: 1608px;"/></a></p>
+<h4 id="user-content-breakdown-of-refresh-token">
+<a aria-hidden="true" class="anchor" href="#user-content-breakdown-of-refresh-token" id="user-content-breakdown-of-refresh-token" name="user-content-breakdown-of-refresh-token"><span aria-hidden="true" class="octicon octicon-link"></span></a>Breakdown of Refresh Token</h4>
+<p><a href="/images/c1.9.png" rel="noopener noreferrer" target="_blank"><img alt="Breakdown of Access Token" data-canonical-src="/images/c1.9.png" src="/images/c1.9.png" style="max-width:100%; max-height: 1580px;"/></a></p>
+<p>In order to use all other APIs which require authentication, the Authentication Bearer header must be included with the Access Token, otherwise a 401 Unauthorised will be returned.</p>
+<h3 id="user-content-use-of-framework-with-role-and-permissions-support">
+<a aria-hidden="true" class="anchor" href="#user-content-use-of-framework-with-role-and-permissions-support" id="user-content-use-of-framework-with-role-and-permissions-support" name="user-content-use-of-framework-with-role-and-permissions-support"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use of Framework with Role and Permissions Support</h3>
+<p>By using the passport.js authentication middleware we are able to define what rights are required for each API endpoint.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">express</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'express'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">auth</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'../../middlewares/auth'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">validate</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'../../middlewares/validate'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">userValidation</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'../../validations/user.validation'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">userController</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'../../controllers/user.controller'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">router</span> <span class="pl-c1">=</span> <span class="pl-s1">express</span><span class="pl-kos">.</span><span class="pl-en">Router</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-s1">router</span>
+  <span class="pl-kos">.</span><span class="pl-en">route</span><span class="pl-kos">(</span><span class="pl-s">'/'</span><span class="pl-kos">)</span>
+  <span class="pl-kos">.</span><span class="pl-en">post</span><span class="pl-kos">(</span><span class="pl-s1">auth</span><span class="pl-kos">(</span><span class="pl-s">'manageUsers'</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">validate</span><span class="pl-kos">(</span><span class="pl-s1">userValidation</span><span class="pl-kos">.</span><span class="pl-c1">createUser</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">userController</span><span class="pl-kos">.</span><span class="pl-c1">createUser</span><span class="pl-kos">)</span>
+  <span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s1">auth</span><span class="pl-kos">(</span><span class="pl-s">'getUsers'</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">validate</span><span class="pl-kos">(</span><span class="pl-s1">userValidation</span><span class="pl-kos">.</span><span class="pl-c1">getUsers</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">userController</span><span class="pl-kos">.</span><span class="pl-c1">getUsers</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-s1">router</span>
+  <span class="pl-kos">.</span><span class="pl-en">route</span><span class="pl-kos">(</span><span class="pl-s">'/:userId'</span><span class="pl-kos">)</span>
+  <span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s1">auth</span><span class="pl-kos">(</span><span class="pl-s">'getUsers'</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">validate</span><span class="pl-kos">(</span><span class="pl-s1">userValidation</span><span class="pl-kos">.</span><span class="pl-c1">getUser</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">userController</span><span class="pl-kos">.</span><span class="pl-c1">getUser</span><span class="pl-kos">)</span>
+  <span class="pl-kos">.</span><span class="pl-en">patch</span><span class="pl-kos">(</span><span class="pl-s1">auth</span><span class="pl-kos">(</span><span class="pl-s">'manageUsers'</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">validate</span><span class="pl-kos">(</span><span class="pl-s1">userValidation</span><span class="pl-kos">.</span><span class="pl-c1">updateUser</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">userController</span><span class="pl-kos">.</span><span class="pl-c1">updateUser</span><span class="pl-kos">)</span>
+  <span class="pl-kos">.</span><span class="pl-en">delete</span><span class="pl-kos">(</span><span class="pl-s1">auth</span><span class="pl-kos">(</span><span class="pl-s">'manageUsers'</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">validate</span><span class="pl-kos">(</span><span class="pl-s1">userValidation</span><span class="pl-kos">.</span><span class="pl-c1">deleteUser</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">userController</span><span class="pl-kos">.</span><span class="pl-c1">deleteUser</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-smi">module</span><span class="pl-kos">.</span><span class="pl-c1">exports</span> <span class="pl-c1">=</span> <span class="pl-s1">router</span><span class="pl-kos">;</span></pre></div>
+<p>In the above example, the <code>POST</code> to <code>/</code> requires the <code>manageUsers</code> right, which ensures that the authenticated user has that right before proceeding.</p>
+<p>The Role to Rights mapping is maintained in <code>src/config/roles.js</code> and easily extensible to define more roles and rights.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">allRoles</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+  <span class="pl-c1">user</span>: <span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+  <span class="pl-c1">admin</span>: <span class="pl-kos">[</span><span class="pl-s">'getUsers'</span><span class="pl-kos">,</span> <span class="pl-s">'manageUsers'</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">roles</span> <span class="pl-c1">=</span> <span class="pl-v">Object</span><span class="pl-kos">.</span><span class="pl-en">keys</span><span class="pl-kos">(</span><span class="pl-s1">allRoles</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">roleRights</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Map</span><span class="pl-kos">(</span><span class="pl-v">Object</span><span class="pl-kos">.</span><span class="pl-en">entries</span><span class="pl-kos">(</span><span class="pl-s1">allRoles</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-smi">module</span><span class="pl-kos">.</span><span class="pl-c1">exports</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+  roles<span class="pl-kos">,</span>
+  roleRights<span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span></pre></div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
