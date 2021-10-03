@@ -168,6 +168,40 @@ Line 22: Upon job success, generate coverage report
 
 ### Use of Serverless to deploy to AWS Lambda
 
+travis.yml
+```yaml
+deploy_service_job: &DEPLOY_SERVICE_JOB
+  cache:
+    directories:
+      - node_modules
+      - ${SERVICE_PATH}/node_modules
+
+  install:
+    - npm install -g serverless
+    - travis_retry npm install
+    - cd ${SERVICE_PATH}
+    - travis_retry npm install
+    - cd -
+
+  script:
+    - cd ${SERVICE_PATH}
+    - serverless deploy -s ${STAGE_NAME}
+    - cd -
+
+jobs:
+  include:
+    # master branch deploys to the 'dev' stage
+    - <<: *DEPLOY_SERVICE_JOB
+      name: "Deploy API"
+      if: type = push AND branch = main
+      env:
+        - SERVICE_PATH="."
+        - STAGE_NAME=dev
+      # - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      # - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+```
+
+serverless.yml
 ```yaml
 service: cs3219-taskb-serverless-2
 app: cs3219-taskb-serverless-2
