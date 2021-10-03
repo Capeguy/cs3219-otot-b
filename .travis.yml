@@ -74,5 +74,5 @@ jobs:
       name: "Deploy API"
       if: type = push AND branch = main
       env:
-        - SERVICE_PATH=""
+        - SERVICE_PATH="."
         - STAGE_NAME=dev
