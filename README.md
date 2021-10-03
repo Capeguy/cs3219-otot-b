@@ -146,7 +146,30 @@ Travis Build is configured to run automatically upon commits to the `main` branc
 
 #### Travis Configuration File
 
-![Travis File](images/b2.2.png)
+```yaml
+1. language: node_js
+os: linux
+dist: xenial
+node_js:
+- '12'
+services:
+- mongodb
+cache: yarn
+branches:
+  only:
+  - main
+env:
+  global:
+  - PORT=3000
+  - MONGODB_URL=mongodb://localhost:27017/app
+  - JWT_SECRET=thisisasamplesecret
+  - JWT_ACCESS_EXPIRATION_MINUTES=30
+  - JWT_REFRESH_EXPIRATION_DAYS=30
+script:
+- yarn lint
+- yarn test
+after_success: yarn coverage:coveralls
+```
 
 Lines 4-5: State that the job should run on Node version 12
 
@@ -232,3 +255,8 @@ functions:
       JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: 10
       NODE_ENV: development
 ```
+
+Serverless Credentials and AWS Keys are provided as encrypted travis environment variables:
+
+`travis encrypt "VariableName=VariableValue" --pro`
+
