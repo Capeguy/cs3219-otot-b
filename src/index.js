@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const app = require('./app');
 const config = require('./config/config');
@@ -36,12 +37,5 @@ process.on('SIGTERM', () => {
     server.close();
   }
 });
-const handler = () => {
-  mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
-    logger.info('Connected to MongoDB');
-    server = app.listen(config.port, () => {
-      logger.info(`Listening to port ${config.port}`);
-    });
-  });
-};
-exports.handler = handler;
+
+module.exports.handler = serverless(app);
