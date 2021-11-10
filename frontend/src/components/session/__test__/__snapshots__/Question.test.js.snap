@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="col"
+>
+  <h3>
+    Question title
+  </h3>
+  <br />
+  <p
+    className="text-medium-emphasis"
+    style={
+      Object {
+        "whiteSpace": "preWrap",
+      }
+    }
+  >
+    Question body
+  </p>
+  <div
+    className="accordion mt-3"
+  >
+    <div>
+      <div
+        className="accordion-item"
+      >
+        <div
+          className="accordion-header"
+        >
+          <button
+            aria-expanded={true}
+            className="accordion-button collapsed"
+            onClick={[Function]}
+          >
+            Show Hint #
+            1
+          </button>
+        </div>
+        <div
+          className="accordion-collpase collapse"
+          style={
+            Object {
+              "height": undefined,
+            }
+          }
+        >
+          <div
+            className="accordion-body"
+          >
+            hint number 1
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        className="accordion-item"
+      >
+        <div
+          className="accordion-header"
+        >
+          <button
+            aria-expanded={true}
+            className="accordion-button collapsed"
+            onClick={[Function]}
+          >
+            Show Hint #
+            2
+          </button>
+        </div>
+        <div
+          className="accordion-collpase collapse"
+          style={
+            Object {
+              "height": undefined,
+            }
+          }
+        >
+          <div
+            className="accordion-body"
+          >
+            hint number 2
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        className="accordion-item"
+      >
+        <div
+          className="accordion-header"
+        >
+          <button
+            aria-expanded={true}
+            className="accordion-button collapsed"
+            onClick={[Function]}
+          >
+            Show Hint #
+            3
+          </button>
+        </div>
+        <div
+          className="accordion-collpase collapse"
+          style={
+            Object {
+              "height": undefined,
+            }
+          }
+        >
+          <div
+            className="accordion-body"
+          >
+            hint number 3
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

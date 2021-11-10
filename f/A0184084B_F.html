@@ -1,0 +1,113 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet"/>
+<meta charset="utf-8" content="text/html"/>
+<div class="gist">
+<style class="formula-style">
+        svg.gh-md-to-html-formula {
+            fill: black;
+        }
+    </style>
+<div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file" id="user-content-article-A0184084B_F">
+<div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="user-content-file-docker-image-pull-md-readme" style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+<article class="markdown-body entry-content container-lg" itemprop="text">
+<h1 id="user-content-submission-information">
+<a aria-hidden="true" class="anchor" href="#user-content-submission-information" id="user-content-submission-information" name="user-content-submission-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submission Information</h1>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lau Jun Hao Benjamin</td>
+</tr>
+<tr>
+<td>Matriculation Number</td>
+<td>A01840840B</td>
+</tr>
+<tr>
+<td>Link to GitHub Repository</td>
+<td>(Same as task B) <a href="https://github.com/Capeguy/cs3219-otot-b">https://github.com/Capeguy/cs3219-otot-b</a>
+</td>
+</tr>
+<tr>
+<td>Instructions</td>
+<td><a href="#user-content-foo">Below</a></td>
+</tr>
+<tr>
+<td>Other Relevant Learnings</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#user-content-submission-information">Submission Information</a></li>
+<li>
+<a href="#user-content-task-f">Task F</a>
+<ul>
+<li>
+<a href="#user-content-objectives">Objectives</a>
+<ul>
+<li><a href="#user-content-successful-get-request-that-retrieves-a-large-amount-of-data-from-a-local-database">Successful GET request that retrieves a large amount of data from a local database.</a></li>
+<li><a href="#user-content-subsequent-successful-get-request-to-the-same-endpoint-that-demonstrates-substantial-performance-improvement-due-to-redis-caching">Subsequent successful GET request to the same endpoint that demonstrates substantial performance improvement due to Redis caching</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="user-content-task-f">
+<a aria-hidden="true" class="anchor" href="#user-content-task-f" id="user-content-task-f" name="user-content-task-f"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task F</h1>
+<h2 id="user-content-objectives">
+<a aria-hidden="true" class="anchor" href="#user-content-objectives" id="user-content-objectives" name="user-content-objectives"><span aria-hidden="true" class="octicon octicon-link"></span></a>Objectives</h2>
+<h3 id="user-content-successful-get-request-that-retrieves-a-large-amount-of-data-from-a-local-database">
+<a aria-hidden="true" class="anchor" href="#user-content-successful-get-request-that-retrieves-a-large-amount-of-data-from-a-local-database" id="user-content-successful-get-request-that-retrieves-a-large-amount-of-data-from-a-local-database" name="user-content-successful-get-request-that-retrieves-a-large-amount-of-data-from-a-local-database"><span aria-hidden="true" class="octicon octicon-link"></span></a>Successful GET request that retrieves a large amount of data from a local database.</h3>
+<h3 id="user-content-subsequent-successful-get-request-to-the-same-endpoint-that-demonstrates-substantial-performance-improvement-due-to-redis-caching">
+<a aria-hidden="true" class="anchor" href="#user-content-subsequent-successful-get-request-to-the-same-endpoint-that-demonstrates-substantial-performance-improvement-due-to-redis-caching" id="user-content-subsequent-successful-get-request-to-the-same-endpoint-that-demonstrates-substantial-performance-improvement-due-to-redis-caching" name="user-content-subsequent-successful-get-request-to-the-same-endpoint-that-demonstrates-substantial-performance-improvement-due-to-redis-caching"><span aria-hidden="true" class="octicon octicon-link"></span></a>Subsequent successful GET request to the same endpoint that demonstrates substantial performance improvement due to Redis caching</h3>
+<p>Scenario: Retrieve 1000 users</p>
+<p>Excluding Browser to Server latency...</p>
+<p>Uncached Response Time: 157.509 ms</p>
+<p>Cached response Time: 22.204 ms</p>
+<p>Performance Improvement: 85%</p>
+<p><a href="/images/f1.png" rel="noopener noreferrer" target="_blank"><img alt="Cached and Uncached Response Times" data-canonical-src="/images/f1.png" src="/images/f1.png" style="max-width:100%; max-height: 1594px;"/></a></p>
+<p><a href="/images/f2.png" rel="noopener noreferrer" target="_blank"><img alt="Console Output" data-canonical-src="/images/f2.png" src="/images/f2.png" style="max-width:100%; max-height: 154px;"/></a></p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-s1">getUsersCached</span> <span class="pl-c1">=</span> <span class="pl-en">catchAsync</span><span class="pl-kos">(</span><span class="pl-k">async</span> <span class="pl-kos">(</span><span class="pl-s1">req</span><span class="pl-kos">,</span> <span class="pl-s1">res</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">filter</span> <span class="pl-c1">=</span> <span class="pl-en">pick</span><span class="pl-kos">(</span><span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-c1">query</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-s">'name'</span><span class="pl-kos">,</span> <span class="pl-s">'role'</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">options</span> <span class="pl-c1">=</span> <span class="pl-en">pick</span><span class="pl-kos">(</span><span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-c1">query</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-s">'sortBy'</span><span class="pl-kos">,</span> <span class="pl-s">'limit'</span><span class="pl-kos">,</span> <span class="pl-s">'page'</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">redisClient</span> <span class="pl-c1">=</span> <span class="pl-en">getRedisClient</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">redisClient</span><span class="pl-kos">.</span><span class="pl-c1">connected</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-v">Object</span><span class="pl-kos">.</span><span class="pl-en">keys</span><span class="pl-kos">(</span><span class="pl-s1">filter</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-c1">length</span> <span class="pl-c1">===</span> <span class="pl-c1">0</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">redisClient</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"users"</span><span class="pl-kos">,</span> <span class="pl-k">async</span> <span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">,</span> <span class="pl-s1">users</span><span class="pl-kos">)</span><span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+      <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+            <span class="pl-c1">status</span>: <span class="pl-s">"error"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">message</span>: <span class="pl-s1">err</span><span class="pl-kos">,</span>
+        <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+      <span class="pl-kos">}</span>
+      <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">users</span> <span class="pl-c1">!=</span> <span class="pl-c1">null</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"[Redis] Cache Hit"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">parse</span><span class="pl-kos">(</span><span class="pl-s1">users</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+      <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"[Redis] Cache Miss 1"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-k">const</span> <span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">userService</span><span class="pl-kos">.</span><span class="pl-en">queryUsers</span><span class="pl-kos">(</span><span class="pl-s1">filter</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-s1">redisClient</span><span class="pl-kos">.</span><span class="pl-en">setex</span><span class="pl-kos">(</span><span class="pl-s">"users"</span><span class="pl-kos">,</span> <span class="pl-c1">30</span><span class="pl-kos">,</span> <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+      <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span>
+  <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"[Redis] Cache Miss 2"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">userService</span><span class="pl-kos">.</span><span class="pl-en">queryUsers</span><span class="pl-kos">(</span><span class="pl-s1">filter</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

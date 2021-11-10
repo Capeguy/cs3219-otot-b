@@ -1,0 +1,10 @@
+org: capeguy
+app: cs3219-g17
+name: serverless-react-boilerplate-dev
+component: website
+
+inputs:
+  src:
+    src: ./src
+    hook: npm run build --verbose
+    dist: ./build
