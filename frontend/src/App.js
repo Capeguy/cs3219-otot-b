@@ -3,44 +3,37 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './utils/PrivateRoute'
 import PublicRoute from './utils/PublicRoute'
 import './scss/style.scss'
-
+import {
+  CAlert,
+  CAlertLink,
+  CButton,
+  CCard,
+  CCardBody,
+  CCardGroup,
+  CCol,
+  CContainer,
+  CForm,
+  CFormInput,
+  CInputGroup,
+  CInputGroupText,
+  CRow,
+} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+import { cilLockLocked, cilLowVision, cilUser } from '@coreui/icons'
+import UserTable from './components/users/UserTable'
+import UserForm from './components/users/UserForm'
+import Default from './view/default/Default'
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
 )
-
-// Container
-const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
-
-// Pages
-const ForgotPassword = React.lazy(() => import('./views/pages/forgotpassword/ForgotPassword'))
-const Login = React.lazy(() => import('./views/pages/login/Login'))
-const PasswordReset = React.lazy(() => import('./views/pages/passwordreset/PasswordReset'))
-const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
-const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
-const Register = React.lazy(() => import('./views/pages/register/Register'))
-const VerifyEmail = React.lazy(() => import('./views/pages/verifyemail/VerifyEmail'))
-const VerifyEmailToken = React.lazy(() => import('./views/pages/verifyemail/VerifyEmailToken'))
-
 class App extends Component {
   render() {
     return (
-      <HashRouter>
-        <React.Suspense fallback={loading}>
-          <Switch>
-            <PublicRoute exact path="/login" name="Login Page" component={Login} />
-            <PublicRoute exact path="/register" name="Register Page" component={Register} />
-            <PublicRoute exact path="/forgot-password" component={ForgotPassword} />
-            <Route exact path="/verify-email" component={VerifyEmailToken} />
-            <Route exact path="/send-verify-email" component={VerifyEmail} />
-            <Route exact path="/404" name="Page 404" render={(props) => <Page404 {...props} />} />
-            <Route exact path="/500" name="Page 500" render={(props) => <Page500 {...props} />} />
-            <Route path="/reset-password" exact component={PasswordReset} />
-            <PrivateRoute path="/" name="Home" component={DefaultLayout} />
-          </Switch>
-        </React.Suspense>
-      </HashRouter>
+      <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+        <Default />
+      </div>
     )
   }
 }
